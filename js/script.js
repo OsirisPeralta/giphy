@@ -4,7 +4,7 @@
 /* global $ */
 
 $("#search-button").click(function(){
-    var query = $("input").val();
+    var query = $("#search-term").val();
     console.log(query);
     var url = "https://api.giphy.com/v1/gifs/search?q=" + query + "&rating=pg&api_key=dc6zaTOxFJmzC";
     $.ajax({
@@ -12,8 +12,27 @@ $("#search-button").click(function(){
         method: "GET",
         success: function(response){
             $('.gallery').append(
-                        "<img src=" + '"' + url + '"' + "/>"
+
+                        "<a href='mailto:anyone@gmail.com' rel = 'EMAIL'>" + "<img src=" + response.data[0].images.original.url + "/>" + "</a>"
+
             );
         },
     });
+});
+
+$("#search-button2").click(function(){
+    var query = $("#search-term2").val();
+    console.log(query);
+    var url = "https://api.giphy.com/v1/gifs/search?q=" + query + "&rating=pg&api_key=dc6zaTOxFJmzC";
+    $.ajax({
+        url: url,
+        method: "GET",
+        success: function(response){
+            $('body').css("background-image", "url(" + response.data[0].images.original.url + ")");
+        },
+    });
+});
+
+$("img").click(function(){
+    $("img").css("width","500%")
 });

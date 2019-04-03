@@ -5,10 +5,16 @@ body {
 }
 
 .navbar-brand {
-    color: white;	
+    color: white;
 }
 
 footer {
     padding-top: 100px;
     margin: 50px 0;
+}
+
+.contenido{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
